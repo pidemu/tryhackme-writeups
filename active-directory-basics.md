@@ -1,4 +1,4 @@
-# TryHackMe - Active Directory Basics
+# TryHackMe - Active Directory Basics Write-Up
 **Category**: Active Directory / Networking
 
 *This room will introduce the basic concepts and functionality provided by Active Directory.*
@@ -11,7 +11,7 @@ This room is where you learn about the basics of Active Directory. Active Direct
 ## Task 2 - Windows Domains 
 A **Windows Domain** is a group of users, computers, and resources that are centrally managed and resources that are centrally managed within an organization. Instead of each computer having its own separate user accounts, authentication and access control are managed through central systems. 
 
-For example, in a domain such as **github.example.com**, users can log into any computer on the network using a ceneralized account like 
+For example, in a domain such as `github.example.com`, users can log into any computer on the network using a ceneralized account like 
 `github\jdoe` - This allows organizations to manage authentication and permissions more efficiently across many machines. 
 
 A **Domain Controller (DC)** – is a server that runs Active Directory services and is reponsible for authenticating users, managing directory data, and enforcing security policies across the domain. The Domain Controller acts as the central authority for identity management within the network. 
@@ -57,3 +57,21 @@ Windows automatically creates several default containers within Active Directory
 ---
 
 ## Task 4 Managing Users in Active Directory
+
+<img width="468" height="440" alt="image" src="https://github.com/user-attachments/assets/cdc586d3-eb8c-4507-8a30-b3d679db86c9" />
+
+During this task, users and Organizational Units were managed to match an organizational structure. 
+
+Some departments contained users that did not match the organizational chart. The inconsistencies were corrected by: 
+- Creating new user accoutns
+- Deleting unnecessary users
+- Adjusting the OU strcture where necessary
+
+If an Organizational Unit needs to be removed, the "Protect object from accidental deletion" option must first be unchecked. Once this portection is disabled, the OU and any contained objects can be deleted after confirmation. 
+
+--- 
+
+<img width="468" height="415" alt="image" src="https://github.com/user-attachments/assets/6ffad1f6-11d3-4c2e-aafa-ac793ab070eb" />
+
+One poweful feature of Active Directory is delegation of control. Delegation allows administratiors to grant specific users limited adminstrative privileges over particular organizational units without giving them full Domain Admnistrator access. A common use case is allowing IT support staff to reset passwoards for standard users. 
+
