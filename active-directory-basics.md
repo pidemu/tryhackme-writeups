@@ -75,3 +75,10 @@ If an Organizational Unit needs to be removed, the "Protect object from accident
 
 One poweful feature of Active Directory is delegation of control. Delegation allows administratiors to grant specific users limited adminstrative privileges over particular organizational units without giving them full Domain Admnistrator access. A common use case is allowing IT support staff to reset passwoards for standard users. 
 
+According to the organizational strcutre, Phillip is responsible for IT support. Therefore, he can be delegated permissions to reset passwords for users in departments such as:
+- Sales
+- Marketing
+- Management
+
+After delegating, Phillip can reset passwords for users in the Sales department. Since Phillip does not have permission to open Active Directory Users and Computers, PowerShell can be used instead. 
+
