@@ -152,3 +152,22 @@ By default, computers refresh GPOs periodically. But, administrators can force a
 - **Automatic Screen Lock Policy**: Another policy automatically locks systems after a period of inactivity. This policy can be applied to workstations, servers, and domain controllers. This helps protect systems if a user leaves their workstation unattended.
 
 ## Task 7 - Authentication Methods 
+
+Whenever a user attempts to access a network resource, the system must authenticate the user with the Domain Controller. Two authentication protocols are used in Windows Domain. 
+
+- Kerberos is the default authentication protocol used by modern Windows domains. When a user logs in the system issues a Ticket Granting Ticket known as a TGT. The TGT is then used to request Ticket Granting Service (TGS) tickets for specific services. These service tickets allow access to resources such as file sharres, database, and websites. This ticket based system prevents passwords from being repeatedly transmitted across the network.
+- NetNTLM is mor eof an older authentication protocol retained for compatiability with legacy systems. Modern windows environments primarily rely on Kerberos for authentication.
+
+## Task 8 - Trees, Forests, and Trusts
+
+- **Tree:** is a collection of domains that share the same namespace. Each domain maintains its own Active Directory structure while still being part of the same tree. This allows different teams to manage their own domain environments independently.
+- **Forests:** is a collection of domain trees that do not share the same namespace. Both domain trees can be comined into th esame forst while maintaining separate namespaces.
+
+**Trust Relationships**
+Trust relationships allow users from one domain acess resources in another domain. 
+
+
+- In a **One-Way Trust**, Domain A trusts Domain B. This means users in Domain B can access resources in Domain A. 
+- In a **Two-Way Trust**, both domains trust each other. Users from both domains can access resources in the other domain.
+
+## Completed Room!
