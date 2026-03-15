@@ -176,4 +176,14 @@ Trust relationships allow users from one domain access to resources in another d
 - In a **One-Way Trust**, Domain A trusts Domain B. This means users in Domain B can access resources in Domain A. 
 - In a **Two-Way Trust**, both domains trust each other. Users from both domains can access resources in the other domain.
 
+## Tools Used
+
+- **Active Directory Users and Computers (ADUC)** – Managing domain users, groups, and Organizational Units  
+- **Group Policy Management Console (GPMC)** – Configuring and applying Group Policy Objects  
+- **PowerShell** – Managing user accounts and resetting passwords through command-line automation  
+- **Remote Desktop Protocol (RDP)** – Accessing remote Windows systems for administration  
+- **Windows Server / Active Directory Domain Services (AD DS)** – Managing domain infrastructure and authentication
+
 ## Completed Room!
+
+
