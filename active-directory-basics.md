@@ -4,10 +4,10 @@
 
 ## Overview 
 
-This room is where you learn about the basics of Active Directory. **Active Directory** is a part of how companies manage their computers and users. The lab teaches you about the parts of Active Directory like domain controllers and users and groups and organizational units. You will see how Active Directory helps keep track of who can do what on the computers in a company using something called a Windows domain environment with Active Directory. 
+This room is where you learn about the basics of Active Directory. **Active Directory** is a part of how companies manage their computers and users. The lab teaches you about the parts of Active Directory like domain controllers, users and groups, and organizational units. It shows how Active Directory helps keep track of who can do what on the computers in a company using something called a Windows domain environment with Active Directory. 
 
 ## Task 2 - Windows Domains 
-A **Windows Domain** is a group of users, computers, and resources that are centrally managed and resources that are centrally managed within an organization. Instead of each computer having its own separate user accounts, authentication and access control are managed through central systems. 
+A **Windows Domain** is a group of users, computers, and resources that are centrally managed and resources that are centrally managed within an organization. Instead of each computer having its own separate user accounts, authentication, and access control are managed through central systems. 
 
 For example, in a domain such as `github.example.com`, users can log into any computer on the network using a centralized account like `github\jdoe` - This allows organizations to manage authentication and permissions more efficiently across many machines. 
 
