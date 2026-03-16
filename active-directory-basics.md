@@ -40,7 +40,7 @@ Within this OU, there were five departmental child OUs:
 
 *This structure reflects how organizations typically separate departments for easier management and policy enforcement.*
 
-In Active Directory, objects such as users, computers, and groups are organized into Organizational Units (OUs). OUs act as containers that help administrators logically organize resources within the domain. This structure makes it easier to manage permissions and apply security policies. Administrators can apply group policies to specific OUs to control system settings, security configurations, and user permissions.
+In Active Directory, objects such as users, computers, and groups are organized into **Organizational Units (OUs)**. OUs act as containers that help administrators logically organize resources within the domain. This structure makes it easier to manage permissions and apply security policies. Administrators can apply group policies to specific OUs to control system settings, security configurations, and user permissions.
 
 For example: 
 - Employees in the Sales department may require different system configurations than employees in IT. 
@@ -51,11 +51,11 @@ For example:
 <p align="center">
 <img width="468" height="442" alt="image" src="https://github.com/user-attachments/assets/6f6f250a-41cd-43a3-8983-46a74d7e5405" />
 
-Windows automatically creates several default containers within Active Directory, including ```Builtin``` which contains default groups available on all Windows systems, **Computers** which are any machine that joins the domain is placed here by default, **Domain Controllers** which are the default Organizational Unit that contains all domain controllers, **Users** which contains default domain users and groups, and finally **Managed Service Accounts** which stores accounts used by services running within the Windows domain.
+Windows automatically creates several default containers within Active Directory, including the ```Builtin``` folder, which contains default groups available on all Windows systems, **Computers** which are any machine that joins the domain is placed here by default, **Domain Controllers** which are the default Organizational Unit that contains all domain controllers, **Users** which contains default domain users and groups, and finally **Managed Service Accounts** which stores accounts used by services running within the Windows domain.
 
 ---
 
-## Task 4 Managing Users in Active Directory
+## Task 4 - Managing Users in Active Directory
 
 <img width="468" height="440" alt="image" src="https://github.com/user-attachments/assets/cdc586d3-eb8c-4507-8a30-b3d679db86c9" />
 
@@ -65,7 +65,7 @@ During this task, users and Organizational Units were managed to match an organi
 
 Some departments contained users that did not match the organizational chart. The inconsistencies were corrected by: 
 - Creating new user accoutns
-- Deleting unnecessary users
+- Deleting or disabling unnecessary users
 - Adjusting the OU structure where necessary
 
 If an Organizational Unit needs to be removed, the "Protect object from accidental deletion" option must first be unchecked. Once this protection is disabled, the OU and any contained objects can be deleted after confirmation. 
@@ -75,7 +75,7 @@ If an Organizational Unit needs to be removed, the "Protect object from accident
 <p align="center">
 <img width="468" height="415" alt="image" src="https://github.com/user-attachments/assets/6ffad1f6-11d3-4c2e-aafa-ac793ab070eb" />
 
-One powerful feature of Active Directory is delegation of control. Delegation allows administrators to grant specific users limited administrative privileges over particular organizational units without giving them full Domain Administrator access. A common use case is allowing IT support staff to reset passwoards for standard users. 
+One powerful feature of Active Directory is delegation of control. **Delegation** allows administrators to grant specific users limited administrative privileges over particular organizational units without giving them full Domain Administrator access. A common use case is allowing IT support staff to reset passwoards for standard users. 
 
 According to the organizational structure, Phillip is responsible for IT support. Therefore, he can be delegated permissions to reset passwords for users in departments such as the following::
 - Sales
@@ -118,7 +118,7 @@ Active Directory also stores computer objects within the domain. Initially, all 
 
 ## Task 6 - Group Policies 
 
-Windows manages domain-wide policies using Group Policy Objects known as GPOs. A GPO is a collection of configuration settings that can be applied to users or computers within an organizational unit. These settings allow administrators to enforce security configurations and system behavior across the network. 
+Windows manages domain-wide policies using **Group Policy Objects** known as GPOs. A GPO is a collection of configuration settings that can be applied to users or computers within an organizational unit. These settings allow administrators to enforce security configurations and system behavior across the network. 
 
 <p align="center">
 <img width="468" height="395" alt="Image" src="https://github.com/user-attachments/assets/62f4c5e2-b26f-45f9-9f45-deb991114df7" />
@@ -130,21 +130,21 @@ In this environment, three Group Policy Objects were present:
 - Default Domain Controllers Policy
 - RDP Policy
 
-The Default Domain Policy and RDP Policy are linked to the entire domain. The Default Domain Contollers Policy applies only to the Domain Controllers OU. 
+The **Default Domain Policy** and **RDP Policy** are linked to the entire domain. The Default Domain Contollers Policy applies only to the Domain Controllers OU. 
 
 ---
 
 <img width="468" height="394" alt="Image" src="https://github.com/user-attachments/assets/3f177537-3183-47f2-97eb-23cc0f8e0d35" />
 <img width="468" height="393" alt="Image" src="https://github.com/user-attachments/assets/d6d7205b-e920-4988-8e31-4d1908def94b" />
 
-When viewing a GPO in Group Policy Management, the first tab displays its scope, which shows where the policy is applied. Each GPO contains many configurable security settings. Administrators can double-click any policy and view the **Explain** tab to learn more about what the policy controls. 
+When viewing a GPO in **Group Policy Management**, the first tab displays its scope, which shows where the policy is applied. Each GPO contains many configurable security settings. Administrators can double-click any policy and view the ```Explain``` tab to learn more about what the policy controls. 
 
 ---
 
 <p align="center">
 <img width="468" height="113" alt="Image" src="https://github.com/user-attachments/assets/afa3085d-296c-4acf-b073-3e1f263438f7" />
   
-Group Policies are distributed through a shared network folder called ```SYSVOL```. The ```SYSVOL``` share is located on Domain Controllers at: ```C:\Windows\SYSVOL\sysvol\```. All domain users typically have read access to this share so their systems can retrieve policy updates. 
+**Group Policies** are distributed through a shared network folder called ```SYSVOL```. The ```SYSVOL``` share is located on Domain Controllers at: ```C:\Windows\SYSVOL\sysvol\```. All domain users typically have read access to this share so their systems can retrieve policy updates. 
 
 By default, computers refresh GPOs periodically. But administrators can force an update immediately using ```gpupdate /force``` via PowerShell. 
 
@@ -161,7 +161,7 @@ By default, computers refresh GPOs periodically. But administrators can force an
 
 Whenever a user attempts to access a network resource, the system must authenticate the user with the Domain Controller. Two authentication protocols are used in a Windows Domain. 
 
-- **Kerberos** is the default authentication protocol used by modern Windows domains. When a user logs in, the system issues a Ticket Granting Ticket known as a TGT. The TGT is then used to request Ticket Granting Service (TGS) tickets for specific services. These service tickets allow access to resources such as file shares, databases, and websites. This ticket-based system prevents passwords from being repeatedly transmitted across the network.
+- **Kerberos** is the default authentication protocol used by modern Windows domains. When a user logs in, the system issues a **Ticket Granting Ticket** known as a **TGT**. The TGT is then used to request **Ticket Granting Service (TGS)** tickets for specific services. These service tickets allow access to resources such as file shares, databases, and websites. This ticket-based system prevents passwords from being repeatedly transmitted across the network.
 - **NetNTLM** is more of an older authentication protocol retained for compatibility with legacy systems. Modern Windows environments primarily rely on Kerberos for authentication.
 
 ## Task 8 - Trees, Forests, and Trusts
@@ -169,8 +169,7 @@ Whenever a user attempts to access a network resource, the system must authentic
 - **Tree** are a collection of domains that share the same namespace. Each domain maintains its own Active Directory structure while still being part of the same tree. This allows different teams to manage their own domain environments independently.
 - **Forests** are a collection of domain trees that do not share the same namespace. Both domain trees can be combined into the same forst while maintaining separate namespaces.
 
-**Trust Relationships**
-Trust relationships allow users from one domain access to resources in another domain. 
+**Trust Relationships** allow users from one domain access to resources in another domain. 
 
 
 - In a **One-Way Trust**, Domain A trusts Domain B. This means users in Domain B can access resources in Domain A. 
